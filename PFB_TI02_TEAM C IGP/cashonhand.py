@@ -1,4 +1,47 @@
+from pathlib import Path
+import csv 
 
+fp = Path.cwd()/"csv_reports"/"cash-on-hand-sgd.csv"
+
+# read the csv file.
+with fp.open(mode="r", encoding="UTF-8", newline="") as file:
+    reader = csv.reader(file)
+    next(reader) # skip header
+
+    # create an empty list for delivery record
+    cash_on_hand=[] 
+
+# Append cash on hand records into the cash_on_hand list.
+    for row in reader:
+        cash_on_hand.append({
+            'day': int(row[0]),
+            'cash_on_hand': int(row[1])
+        })
+
+def trend_detector_cash(cash_on_hand):
+    """
+    Calculates cash on hand deficit and increasing days
+    """
+    # Calculate the difference in cash on hand for each day.
+    cash_diff = [cash_on_hand[i + 1]['cash_on_hand'] - cash_on_hand[i]['cash_on_hand']
+                 for i in range(len(cash_on_hand) - 1)]
+
+    # Determine the trend of cash on hand.
+    trend = None
+
+    # Check if cash on hand is always increasing.
+    is_increasing = True
+    for diff in cash_diff:
+        if diff < 0:
+            is_increasing = False
+            break
+
+    # Check if cash on hand is always decreasing.
+    is_decreasing = True
+    for diff in cash_diff:
+        if diff > 0:
+            is_decreasing = False
+            break
 
     # Find the day and amount of the highest increment if cash on hand is always increasing.
     if trend == 'increasing':
