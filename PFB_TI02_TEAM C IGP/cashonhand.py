@@ -43,7 +43,7 @@ def trend_detector_cash(cash_on_hand):
     # Find the day and amount of the highest increment if cash on hand is always increasing.
     if trend == 'increasing':
         max_increment_day = 12
-        max_increment_amount = float('-inf')
+        max_increment_amount = float(999999999999999)
 
         for i, diff in enumerate(cash_diff):
             if diff > max_increment_amount:
@@ -55,7 +55,7 @@ def trend_detector_cash(cash_on_hand):
     # Find the day and amount of the highest decrement if cash on hand is always decreasing.
     elif trend == 'decreasing':
         max_decrement_day = 12
-        max_decrement_amount = float('inf')
+        max_decrement_amount = float(99999999999999)
 
         for i, diff in enumerate(cash_diff):
             if diff < max_decrement_amount:
@@ -72,16 +72,13 @@ def trend_detector_cash(cash_on_hand):
             result += f"[CASH DEFICIT] DAY: {day}, AMOUNT: SGD{amount}"
 
         # Find the top 3 highest deficit amounts and the days they happened.
-        top_3_deficits = sorted(deficit_days, key=deficit_day_amount, reverse=False)[:3]
+        top_3_deficits = sorted(deficit_days)[:3]
         result += "\n\nTop 3 Highest Deficit Amounts:"
 
         for rank, (day, amount) in enumerate(deficit_days[:3], start=1):
             result += f"\n{rank} HIGHEST DEFICIT, DAY: {day}, AMOUNT: SGD{amount}"
 
     return result
-
-def deficit_day_amount(day_amount):
-    return day_amount[1]
 
 # Get the result from the trend_detector_cash function.
 cash_result = trend_detector_cash(cash_on_hand)
