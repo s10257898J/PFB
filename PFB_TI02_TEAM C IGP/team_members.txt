@@ -1,0 +1,20 @@
+Class: TI02
+Name: Fatima Musharrat 
+Student ID: (S10255804H)  
+Email: s10255804@connect.np.edu.
+ 
+Name: Yong Jun Yi 
+Student ID: (S10256136G)  
+Email: s10256136@connect.np.edu.sg
+ 
+Name: Nur Ishikah Binte Abu Talib 
+Student ID: (S10258205H)  
+Email: s10258205@connect.np.edu.sg
+ 
+Name: Jermin Lam 
+Student ID: (S10262103B) 
+Email: s10262103@connect.np.edu.sg
+  
+Name: Wong Jun Sen Lloyd 
+Student ID: (S10257898)
+Email: s10257898@connect.np.edu.sg
