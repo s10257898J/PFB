@@ -2,7 +2,7 @@ from pathlib import Path
 import csv
 
 # create a file path to csv file.
-fp = Path.cwd()/"profit-and-loss-sgd.csv"
+fp = Path.cwd()/"csv_reports"/"profit-and-loss-sgd.csv"
 
 # read the csv file.
 with fp.open(mode="r", encoding="UTF-8", newline="") as file:
@@ -54,7 +54,7 @@ def trend_detector(profit_and_loss):
         trend = 'fluctuating'
 # Find the day and amount of the highest increment if net profit is always increasing.
     if trend == 'increasing':
-        max_increment_day = 11
+        max_increment_day = 12
         max_increment_amount = float('-inf')
 
         for i, diff in enumerate(net_profit_diff):
@@ -66,7 +66,7 @@ def trend_detector(profit_and_loss):
 
     # Find the day and amount of the highest decrement if net profit is always decreasing.
     elif trend == 'decreasing':
-        max_decrement_day = 11
+        max_decrement_day = 12
         max_decrement_amount = float('inf')
 
         for i, diff in enumerate(net_profit_diff):
@@ -84,7 +84,7 @@ def trend_detector(profit_and_loss):
             result += f"\n[NET PROFIT DEFICIT] DAY: {day}, AMOUNT: SGD{amount}"
 
         # Find the top 3 highest deficit amounts and the days they happened.
-        top_3_deficits = sorted(deficit_days, key=deficit_day_amount, reverse=False)[:3]
+        top_3_deficits = sorted(deficit_days)[:3]
 
         result += "\n\nTop 3 Highest Deficit Amounts:"
 
@@ -93,8 +93,6 @@ def trend_detector(profit_and_loss):
 
     return result
 
-def deficit_day_amount(day_amount):
-    return day_amount[1]
 
 # Get the result from the trend_detector function.
 result = trend_detector(profit_and_loss)
