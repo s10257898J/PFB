@@ -55,6 +55,9 @@ with fp.open(mode="r", encoding="UTF-8", newline="") as file:
         })
 
 def trend_detector_cash(cash_on_hand):
+    """
+    Calculates cash on hand deficit and increasing days
+    """
     # Calculate the difference in cash on hand for each day.
     cash_diff = [cash_on_hand[i + 1]['cash_on_hand'] - cash_on_hand[i]['cash_on_hand']
                  for i in range(len(cash_on_hand) - 1)]
@@ -155,6 +158,9 @@ with fp.open(mode="r", encoding="UTF-8", newline="") as file:
         })
 
 def trend_detector(profit_and_loss):
+    """
+    Calculates profit and loss deficit or increasing days
+    """
     # Calculate the difference in net profit for each day.
     net_profit_diff = [profit_and_loss[i + 1]['net_profit'] - profit_and_loss[i]['net_profit']
                        for i in range(len(profit_and_loss) - 1)]
