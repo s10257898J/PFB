@@ -19,6 +19,9 @@ with fp.open(mode="r", encoding="UTF-8", newline="") as file:
         })
 
 def trend_detector_cash(cash_on_hand):
+    """
+    Calculates cash on hand deficit and increasing days
+    """
     # Calculate the difference in cash on hand for each day.
     cash_diff = [cash_on_hand[i + 1]['cash_on_hand'] - cash_on_hand[i]['cash_on_hand']
                  for i in range(len(cash_on_hand) - 1)]
