@@ -24,6 +24,9 @@ with fp.open(mode="r", encoding="UTF-8", newline="") as file:
 
 
 def trend_detector(profit_and_loss):
+    """
+    Calculate profit and loss deficit and increasing days
+    """
     # Calculate the difference in net profit for each day.
     net_profit_diff = [profit_and_loss[i + 1]['net_profit'] - profit_and_loss[i]['net_profit']
                        for i in range(len(profit_and_loss) - 1)]
