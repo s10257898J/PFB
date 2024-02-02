@@ -1,7 +1,7 @@
 from pathlib import Path
 import csv
 
-fp = Path.cwd()/"overheads-day-90.csv"
+fp = Path.cwd()/"csv_reports"/"overheads-day-90.csv"
 
 # read the csv file.
 with fp.open(mode="r", encoding="UTF-8", newline="") as file:
