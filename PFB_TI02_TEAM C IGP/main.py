@@ -126,9 +126,9 @@ def trend_detector_cash(cash_on_hand):
             if rank == 1:
                 rank1 = "[HIGHEST"
             elif rank == 2: 
-                rank1 = "2ND HIGHEST"
+                rank1 = "[2ND HIGHEST"
             elif rank == 3:
-                rank1 = "3RD HIGHEST"
+                rank1 = "[3RD HIGHEST"
             
         result += f"\n{rank1} CASH DEFICIT], DAY: {day}, AMOUNT: SGD{amount}"
 
@@ -237,9 +237,9 @@ def trend_detector(profit_and_loss):
             if rank == 1:
                 rank1 = "[HIGHEST"
             elif rank == 2: 
-                rank1 = "2ND HIGHEST"
+                rank1 = "[2ND HIGHEST"
             elif rank == 3:
-                rank1 = "3RD HIGHEST"
+                rank1 = "[3RD HIGHEST"
             
         result += f"\n{rank1} NET PROFIT DEFICIT], DAY: {day}, AMOUNT: SGD{amount}"
 
