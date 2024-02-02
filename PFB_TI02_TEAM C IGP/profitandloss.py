@@ -92,7 +92,14 @@ def trend_detector(profit_and_loss):
         result += "\n\nTop 3 Highest Deficit Amounts:"
 
         for rank, (day, amount) in enumerate(top_3_deficits, start=1):
-            result += f"\n{rank} HIGHEST DEFICIT, DAY: {day}, AMOUNT: SGD{amount}"
+            if rank == 1:
+                rank1 = "[HIGHEST"
+            elif rank == 2: 
+                rank1 = "2ND HIGHEST"
+            elif rank == 3:
+                rank1 = "3RD HIGHEST"
+            
+        result += f"\n{rank1} NET PROFIT DEFICIT], DAY: {day}, AMOUNT: SGD{amount}"
 
     return result
 
