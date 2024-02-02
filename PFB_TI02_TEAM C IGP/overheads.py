@@ -1,4 +1,23 @@
+from pathlib import Path
+import csv
 
+fp = Path.cwd()/"csv_reports"/"overheads-day-90.csv"
+
+# read the csv file.
+with fp.open(mode="r", encoding="UTF-8", newline="") as file:
+    reader = csv.reader(file)
+    next(reader) # skip header
+
+    # create an empty list for delivery record
+    overheads=[] 
+
+    # Append overhead records into the overheads list.
+    for row in reader:
+        # Get the category and overhead value for each record and append to the overheads list.
+        overheads.append({
+            'category': row[0],
+            'overheads': float(row[1])
+        })
 
 # Initialize variables to keep track of the maximum overhead and its corresponding category
 max_overhead_category = ""
